@@ -13,7 +13,7 @@ dependencies:
   - meson-python <0.12.0
   - ninja
   - numpy < 2.0.0
-  - scipy
+  - scipy < 1.12
   - suitesparse < 7.0.0
   - swig
   - build
