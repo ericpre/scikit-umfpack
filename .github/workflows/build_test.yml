@@ -3,7 +3,7 @@ name: Build and Test
 on:
   push:
     branches:
-      - master
+      - "*"
   pull_request:
     branches:
       - master
@@ -26,7 +26,6 @@ permissions:
 
 jobs:
   ubuntu:
-    if: "github.repository == 'scikit-umfpack/scikit-umfpack'"
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
@@ -55,7 +54,6 @@ jobs:
         pytest --pyargs scikits.umfpack
 
   conda-forge:
-    if: "github.repository == 'scikit-umfpack/scikit-umfpack'"
     runs-on: ${{ matrix.platform }}
     strategy:
       # Ensure that a wheel builder finishes even if another fails
