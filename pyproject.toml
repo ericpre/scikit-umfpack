@@ -13,7 +13,7 @@ description = "Python interface to UMFPACK sparse direct solver."
 maintainers = [
     {name = "Robert Cimmrman", email="cimrman3@ntc.zcu.cz"},
 ]
-requires-python = ">=3.9,<3.12"
+requires-python = ">=3.9"
 dependencies = [
     "numpy<2.0.0",
     "scipy",
