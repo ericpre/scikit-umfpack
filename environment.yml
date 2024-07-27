@@ -7,10 +7,10 @@ name: scikit-umfpack-dev
 channels:
   - conda-forge
 dependencies:
-  - python
+  - python <3.12
   - c-compiler
-  - meson <=1.3.0
-  - meson-python <0.12.0
+  - meson
+  - meson-python
   - ninja
   - numpy < 2.0.0
   - scipy < 1.12
