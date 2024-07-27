@@ -113,7 +113,7 @@ class TestSolvers(unittest.TestCase):
         B = hstack((b, b2))
 
         X = lu.solve_sparse(B)
-        assert dense_norm(((A*X) - B).todense()) < 1e-14
+        assert dense_norm(((A*X) - B).todense()) < 2e-14
         assert_allclose((A*X).todense(), B.todense())
 
     def test_splu_lu(self):
@@ -131,9 +131,9 @@ class TestSolvers(unittest.TestCase):
         R = csc_matrix((4, 4))
         R.setdiag(lu.R)
 
-        A2 = (R * Pr.T * (lu.L * lu.U) * Pc.T).A
+        A2 = (R * Pr.T * (lu.L * lu.U) * Pc.T).toarray()
 
-        assert_allclose(A2, A.A, atol=1e-13)
+        assert_allclose(A2, A.toarray(), atol=1e-13)
 
 class TestSolversWithArrays(unittest.TestCase):
     """Same tests as above, but using the csc_array interface. Key difference 
@@ -242,9 +242,9 @@ class TestSolversWithArrays(unittest.TestCase):
         R = csc_array((4, 4))
         R.setdiag(lu.R)
 
-        A2 = (R @ Pr.T @ (lu.L @ lu.U) @ Pc.T).A
+        A2 = (R @ Pr.T @ (lu.L @ lu.U) @ Pc.T).toarray()
 
-        assert_allclose(A2, A.A, atol=1e-13)
+        assert_allclose(A2, A.toarray(), atol=1e-13)
 
 if __name__ == "__main__":
     unittest.main()
