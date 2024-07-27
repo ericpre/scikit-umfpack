@@ -68,9 +68,9 @@ jobs:
       run: |
         micromamba activate scikit-umfpack-dev
         if [[ ${{ matrix.platform }} == windows-latest ]]; then
-          pip install . -v --no-build-isolation -Cbuild-dir=build -Csetup-args=--vsenv -Csetup-args=--native-file=$PWD/tools/ci/windows-condaforge-native.ini
+          pip install . -v --no-build-isolation -Csetup-args=--vsenv -Csetup-args=--native-file=$PWD/tools/ci/windows-condaforge-native.ini
         else
-          pip install . -v --no-build-isolation -Cbuild-dir=build
+          pip install . -v --no-build-isolation
         fi
 
     - name: Run test suite
